@@ -3,18 +3,9 @@ import random
 from string import ascii_letters
 
 from sqlalchemy import insert
-from sqlalchemy.ext.asyncio import async_sessionmaker
 
-from app.database import engine
+from app.database import engine, get_session
 from app.models import Base, ItemModel
-
-
-session_factory = async_sessionmaker(
-    engine,
-    autoflush=False,
-    autocommit=False,
-    expire_on_commit=False,
-)
 
 
 async def main():
@@ -26,7 +17,7 @@ async def main():
 
     print('Tables created!')
 
-    async with session_factory() as session:
+    async for session in get_session():
         for _ in range(100_000):
             stmt = insert(ItemModel).values(
                 {
