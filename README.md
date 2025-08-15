@@ -3,7 +3,7 @@ Please don't mention caching, I already know about it.
 Idk why Tiangolo recommend using only uvicorn, I really don't understand why.
 
 gunicorn + uvicorn workers:
-```bash
+```
 TOTAL RESULTS
 
 checks_total.......: 834597  2781.533211/s
@@ -30,7 +30,7 @@ data_sent......................: 68 MB  225 kB/s
 
 ```
 uvicorn:
-```bash
+```
 TOTAL RESULTS
 
 checks_total.......: 715935  2385.974577/s
